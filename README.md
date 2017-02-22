@@ -1,12 +1,13 @@
 # TSDNS
-Size optimised docker container via [alpine](https://hub.docker.com/_/alpine/) base-image.
 
-[![](https://images.microbadger.com/badges/version/phaldan/tsdns:3.0.13.6.svg)](https://microbadger.com/images/phaldan/tsdns:3.0.13.6) [![](https://images.microbadger.com/badges/image/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) ![](https://img.shields.io/docker/stars/phaldan/tsdns.svg) ![](https://img.shields.io/docker/pulls/phaldan/tsdns.svg) ![](https://img.shields.io/docker/automated/phaldan/tsdns.svg)
+Size optimised docker image via [alpine](https://hub.docker.com/_/alpine/) base-image.
 
-* `3.0.13.6`, `3.0.13`, `3.0`. `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d6c4728213e81c3e15b466606e1f224f4ef6fc64/Dockerfile))
+[![](https://images.microbadger.com/badges/version/phaldan/tsdns:3.0.13.6.svg)](https://microbadger.com/images/phaldan/tsdns:3.0.13.6) [![](https://images.microbadger.com/badges/image/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) [![](https://img.shields.io/docker/stars/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/pulls/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/automated/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/)
+
+* `3.0.13.6`, `3.0.13`, `3.0`, `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d6c4728213e81c3e15b466606e1f224f4ef6fc64/Dockerfile))
 &nbsp;
 
-# Run container
+# Run TSDNS
 
 ```
 $  docker run -d --name tsdns -v ${PWD}/tsdns_settings.ini:/tsdns/tsdns_settings.ini -p 41144:41144 phaldan/tsdns
@@ -46,7 +47,6 @@ private.teamspeak.com=12.13.14.15:14000
 voice.teamspeak.com=NORESPONSE
 *.teamspeak-systems.de=1.2.3.4:15000
 *=12.13.14.15:$PORT
-
 # This way, now clients can connect to "test.teamspeak.com" to reach the test
 # server, but if they still have the old "teamspeak.com:12000" in their
 # bookmarks, it will also work thanks to the "*=12.13.14.15:$PORT" line, which
