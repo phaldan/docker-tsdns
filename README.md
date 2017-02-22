@@ -1,4 +1,9 @@
-# TSDNS: `3.0.13.6`
+# TSDNS
+Size optimised docker container via [alpine](https://hub.docker.com/_/alpine/) base-image.
+
+[![](https://images.microbadger.com/badges/version/phaldan/tsdns:3.0.13.6.svg)](https://microbadger.com/images/phaldan/tsdns:3.0.13.6) [![](https://images.microbadger.com/badges/image/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) ![](https://img.shields.io/docker/stars/phaldan/tsdns.svg) ![](https://img.shields.io/docker/pulls/phaldan/tsdns.svg) ![](https://img.shields.io/docker/automated/phaldan/tsdns.svg)
+
+* `3.0.13.6`, `3.0.13`, `3.0`. `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d6c4728213e81c3e15b466606e1f224f4ef6fc64/Dockerfile))
 &nbsp;
 
 # Run container
@@ -15,7 +20,7 @@ $ docker kill -s SIGUSR1 tsdns
 &nbsp;
 
 # What is TSDNS
-TSDNS  (TeamSpeak Domain Name System) allows to resolve a domain to the ip and port of your TeamSpeak 3 server. This can be achieved by adding a SVR-Record to the DNS of your domain ([How-to](https://support.teamspeakusa.com/index.php?/Knowledgebase/Article/View/293/0/does-teamspeak-3-support-dns-srv-records)). 
+TSDNS (TeamSpeak Domain Name System) allows to resolve a domain to the ip and port of your TeamSpeak 3 server. This can be achieved by adding a SVR-Record to the DNS of your domain ([How-to](https://support.teamspeakusa.com/index.php?/Knowledgebase/Article/View/293/0/does-teamspeak-3-support-dns-srv-records)). 
 For example your TeamSpeak 3 server is running under `12.13.14.15:10000`. You could extend the DNS of your domain `example.com` with the following DNS record and can now connect with your TeamSpeak 3 client to your TeamSpeak 3 server by using `example.com` (instead of ip and port): 
 
 ```
