@@ -1,12 +1,38 @@
-TS_VERSION=$(or $(VERSION),3.0.13.8)
+.PHONY : all build update run clear check logs upgrade
+VERSION?=3.0.13.8
+UPGRADE_SCRIPT=upgrade.sh
+DOCKER_IMAGE=phaldan/tsdns
+DOCKER_CONTAINER=tsdns
+DOCKER_CLI=$(shell which docker.io || which docker)
+MAKE=make -s
 
 all:	build
 
 build:
-	docker build --build-arg TS_VERSION=$(TS_VERSION) -t phaldan/tsdns:$(TS_VERSION) .
+	$(DOCKER_CLI) build --build-arg TS_VERSION=$(VERSION) -t $(DOCKER_IMAGE):$(VERSION) .
+
+update:
+	$(DOCKER_CLI) pull $(shell sed -n 's/^FROM //p' Dockerfile)
+	$(MAKE) build
 
 push:
-	docker push phaldan/tsdns:$(TS_VERSION)
+	$(DOCKER_CLI) push $(DOCKER_IMAGE):$(VERSION)
 
 run:
-	docker run --name tsdns -d -v ${PWD}/tsdns_settings.ini:/tsdns/tsdns_settings.ini -p 41144:41144 phaldan/tsdns:$(TS_VERSION)
+	$(DOCKER_CLI) run -d --name $(DOCKER_CONTAINER) \
+	-v ${PWD}/tsdns_settings.ini:/tsdns/tsdns_settings.ini \
+	-p 41144:41144 \
+	$(DOCKER_IMAGE):$(VERSION)
+
+clear:
+	$(DOCKER_CLI) stop $(DOCKER_CONTAINER)
+	$(DOCKER_CLI) rm $(DOCKER_CONTAINER)
+
+logs:
+	$(DOCKER_CLI) logs $(DOCKER_CONTAINER)
+
+upgrade: build
+	curl -o $(UPGRADE_SCRIPT) https://raw.githubusercontent.com/phaldan/docker-tags-upgrade/master/$(UPGRADE_SCRIPT)
+	chmod +x $(UPGRADE_SCRIPT)
+	./$(UPGRADE_SCRIPT) "$(DOCKER_IMAGE)" "$(VERSION)"
+
