@@ -1,5 +1,5 @@
 .PHONY : all build update run clear check logs upgrade
-VERSION?=3.1.3
+VERSION?=3.2.0
 UPGRADE_SCRIPT=upgrade.sh
 DOCKER_IMAGE=phaldan/tsdns
 DOCKER_CONTAINER=tsdns
