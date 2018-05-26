@@ -2,7 +2,7 @@ FROM frolvlad/alpine-glibc:alpine-3.7_glibc-2.26
 
 MAINTAINER Philipp Daniels <philipp.daniels@gmail.com>
 
-ARG TS_VERSION=3.1.2
+ARG TS_VERSION=3.1.3
 
 WORKDIR /tsdns
 
