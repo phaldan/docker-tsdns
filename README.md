@@ -4,7 +4,7 @@ Size optimised docker image via [alpine](https://hub.docker.com/_/alpine/) base-
 
 [![](https://images.microbadger.com/badges/version/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) [![](https://images.microbadger.com/badges/image/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) [![](https://img.shields.io/docker/stars/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/pulls/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/automated/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/)
 
-* `3.1.0`, `3.1`, `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d8e1d3efe1d0cc010b5d3a265905bdfd122317de/Dockerfile))
+* `3.1.1`, `3.1`, `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/88570b81f5389e86eef557c99c53f688a4b1edeb/Dockerfile))
 * `3.0.13.8`, `3.0.13`, `3.0` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/56b2dc009f788ba1139eaa567ca67ef8da197b91/Dockerfile))
 * `3.0.12.4`, `3.0.12` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d6c4728213e81c3e15b466606e1f224f4ef6fc64/Dockerfile))
 
