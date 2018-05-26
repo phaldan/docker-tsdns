@@ -9,7 +9,10 @@ MAKE=make -s
 all:	build
 
 build:
-	$(DOCKER_CLI) build --build-arg TS_VERSION=$(VERSION) -t $(DOCKER_IMAGE):$(VERSION) .
+	$(DOCKER_CLI) build --build-arg TS_VERSION=$(VERSION) \
+		--build-arg VCS_REF=`git rev-parse --short HEAD` \
+		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+		-t $(DOCKER_IMAGE):$(VERSION) .
 
 update:
 	$(DOCKER_CLI) pull $(shell sed -n 's/^FROM //p' Dockerfile)
