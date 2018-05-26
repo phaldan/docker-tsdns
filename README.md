@@ -4,22 +4,20 @@ Size optimised docker image via [alpine](https://hub.docker.com/_/alpine/) base-
 
 [![](https://images.microbadger.com/badges/version/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) [![](https://images.microbadger.com/badges/image/phaldan/tsdns.svg)](https://microbadger.com/images/phaldan/tsdns) [![](https://img.shields.io/docker/stars/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/pulls/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/) [![](https://img.shields.io/docker/automated/phaldan/tsdns.svg)](https://hub.docker.com/r/phaldan/tsdns/)
 
-* `3.0.13.8`, `3.0.13`, `3.0`, `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/56b2dc009f788ba1139eaa567ca67ef8da197b91/Dockerfile))
+* `3.1.0`, `3.1`, `3`, `latest` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d8e1d3efe1d0cc010b5d3a265905bdfd122317de/Dockerfile))
+* `3.0.13.8`, `3.0.13`, `3.0` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/56b2dc009f788ba1139eaa567ca67ef8da197b91/Dockerfile))
 * `3.0.12.4`, `3.0.12` ([Dockerfile](https://github.com/phaldan/docker-tsdns/blob/d6c4728213e81c3e15b466606e1f224f4ef6fc64/Dockerfile))
-&nbsp;
 
 # Run TSDNS
 
 ```
 $  docker run -d --name tsdns -v ${PWD}/tsdns_settings.ini:/tsdns/tsdns_settings.ini -p 41144:41144 phaldan/tsdns
 ```
-&nbsp;
 
 # Reload `tsdns_settings.ini`
 ```
 $ docker kill -s SIGUSR1 tsdns
 ```
-&nbsp;
 
 # What is TSDNS
 TSDNS (TeamSpeak Domain Name System) allows to resolve a domain to the ip and port of your TeamSpeak 3 server. This can be achieved by adding a SVR-Record to the DNS of your domain ([How-to](https://support.teamspeakusa.com/index.php?/Knowledgebase/Article/View/293/0/does-teamspeak-3-support-dns-srv-records)). 
@@ -28,13 +26,12 @@ For example your TeamSpeak 3 server is running under `12.13.14.15:10000`. You co
 ```
 _ts3._udp.example.com. 86400 IN SRV 0 5 10000 12.13.14.15.
 ```
-&nbsp;
+
 For a single domain you can use TSDNS without a TSDNS server, but for multiple domains it is easier to manage your domains with a dedicated TSDNS server. In this case you only need to extend the DNS of your domain with the following DNS record (TSDNS and TS3 server runs on same machine) and configure the domain resolve in the `tsdns_settings.ini`:
 
 ```
  _tsdns._tcp. example.com. 86400 IN SRV 0 5 41144 12.13.14.15.
 ```
-&nbsp;
 
 # Example of `tsdns_settings.ini`
 
